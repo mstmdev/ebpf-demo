@@ -25,6 +25,9 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
+      - name: Init Env
+        run: sudo apt-get install llvm
+
       - name: Generate
         run: go generate ./...
 
