@@ -26,7 +26,9 @@ jobs:
           go-version: ${{ matrix.go }}
 
       - name: Init Env
-        run: sudo apt-get install llvm && sudo ln -sf /usr/include/asm-generic/ /usr/include/asm
+        run: sudo apt-get install llvm && \
+          sudo ln -sf /usr/include/asm-generic/ /usr/include/asm && \
+          sudo apt-get install libbpf-dev
 
       - name: Generate
         run: go generate ./...
